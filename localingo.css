@@ -1,0 +1,200 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f7fa;
+  --panel: #ffffff;
+  --border: #dedee7;
+  --accent: #6655ff;
+  --accent-soft: rgba(102, 85, 255, 0.12);
+  --text: #1c1c33;
+  --muted: #6a6a80;
+  --error: #cc2f4d;
+  font-family: "Inter", "Segoe UI", "Hiragino Sans", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+header h1 {
+  font-size: 1.25rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+header span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 6rem);
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.panel small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+textarea {
+  width: 100%;
+  flex: 1;
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+  font: inherit;
+  background: #fafafd;
+  line-height: 1.4;
+}
+
+textarea:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.output-box {
+  flex: 1;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 0.9rem;
+  background: #fbfbff;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.status-line {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.status-line[data-tone="alert"] {
+  color: var(--error);
+}
+
+.variants {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.variant-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.variant-card header {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.variant-card header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.variant-card p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 1500px) {
+  .app-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .panel {
+    min-height: auto;
+  }
+}

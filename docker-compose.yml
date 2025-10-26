@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: localingo-ollama
+    restart: unless-stopped
+    platform: linux/arm64
+    command: serve
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+volumes:
+  ollama:

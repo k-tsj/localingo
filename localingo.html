@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>localingo</title>
+  <link rel="stylesheet" href="localingo.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>localingo</h1>
+    </div>
+    <span>gemma2:2b @ localhost:11434</span>
+  </header>
+
+  <div class="app-grid">
+    <section class="panel" id="contextPanel">
+      <div class="panel-header">
+        <div>
+          <h2>コンテキスト</h2>
+          <small>任意／会話ログなど</small>
+        </div>
+        <button class="btn ghost" data-clear="contextInput">clear</button>
+      </div>
+      <textarea id="contextInput" placeholder="例: Slackスレッド全文を貼り付けます"></textarea>
+    </section>
+
+    <section class="panel" id="inputPanel">
+      <div class="panel-header">
+        <div>
+          <h2>入力英文</h2>
+          <small>Cmd/Ctrl+Enterで送信</small>
+        </div>
+        <div>
+          <button class="btn ghost" data-clear="englishInput">clear</button>
+          <button class="btn" data-copy="englishInput">copy</button>
+        </div>
+      </div>
+      <textarea id="englishInput" placeholder="ここに校正したい英文を入力します"></textarea>
+      <div class="status-line" id="statusMessage">Cmd/Ctrl+EnterでLLMパイプラインを実行します。</div>
+    </section>
+
+    <section class="panel" id="correctedPanel">
+      <div class="panel-header">
+        <div>
+          <h2>校正済み英文</h2>
+          <small>構造を維持して修正</small>
+        </div>
+        <button class="btn" data-copy="correctedOutput">copy</button>
+      </div>
+      <div class="output-box placeholder" id="correctedOutput">まだ結果がありません。</div>
+    </section>
+
+    <section class="panel" id="japanesePanel">
+      <div class="panel-header">
+        <div>
+          <h2>日本語訳</h2>
+          <small>入力英文を直訳しすぎない自然な訳</small>
+        </div>
+        <button class="btn" data-copy="japaneseOutput">copy</button>
+      </div>
+      <div class="output-box placeholder" id="japaneseOutput">まだ結果がありません。</div>
+    </section>
+
+    <section class="panel" id="englishAltPanel">
+      <div class="panel-header">
+        <div>
+          <h2>英訳プラン</h2>
+          <small>日本語訳をもとに3案</small>
+        </div>
+      </div>
+      <div class="variants" id="englishVariants">
+        <div class="variant-card placeholder">まだ候補がありません。</div>
+      </div>
+    </section>
+  </div>
+
+  <script src="localingo.js" defer></script>
+</body>
+</html>
