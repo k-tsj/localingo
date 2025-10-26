@@ -163,7 +163,14 @@ function wireButtons() {
     btn.addEventListener('click', () => {
       const target = document.getElementById(btn.dataset.clear);
       if (target) {
-        target.value = '';
+        if (typeof target.value !== 'undefined') {
+          target.value = '';
+        } else {
+          target.textContent = '';
+        }
+        if (typeof target.focus === 'function') {
+          target.focus();
+        }
         if (target === englishInput) {
           setStatus(DEFAULT_STATUS);
         }
