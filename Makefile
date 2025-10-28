@@ -5,4 +5,4 @@ init:
 
 run:
 	podman compose up -d
-	ruby -run -e httpd . > /dev/null 2>&1 &
+	ruby -run -e httpd . -p 8081 > /dev/null 2>&1 &
